@@ -2,16 +2,16 @@ const express = require('express');
 const mongoose = require('mongoose')
 const mysql = require('mysql');
 var bodyParser = require('body-parser');
-const route = require('../src/routes/');
+const route = require('../src/routes/index');
+const gameRoutes = require('../src/routes/gameRoutes')
 // var multer = require('multer') 
-const { publishEvent } = require('./EventFiles/eventPublisher');
-const { subscribeToEvents } = require('./EventFiles/eventSubscriber');
+// const { publishEvent } = require('./EventFiles/eventPublisher');
+// const { subscribeToEvents } = require('./EventFiles/eventSubscriber');
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-// app.use(multer().any()) // HERE
 
 // SQL DATABASE CONNECTION
 
@@ -51,9 +51,11 @@ mongoose.connect('mongodb://localhost:27017/gameDataBase', { useNewUrlParser: tr
 
 // // Start the event subscriber
 // subscribeToEvents();
+app.get('/', (req, res) => {
+      res.send('Hello World!')
+})
 
-
-app.use('/', route);
+app.use('/game', gameRoutes);
 
 
 
