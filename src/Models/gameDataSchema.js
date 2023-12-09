@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // Have taken the playerStatistics similar to cricket
 
 const gameSchema = new mongoose.Schema({
-  username: { 
+  userName: { 
     type: String, 
     required: true 
   },
@@ -36,16 +36,13 @@ const gameSchema = new mongoose.Schema({
   gameResults: {
     games: [
       {
-        gameID: { type: mongoose.Schema.Types.ObjectId, default: mongoose.Types.ObjectId },
         datePlayed: { 
-            type: Date, 
-            default: new Date()
+            type: Date
         },
         outcome: { 
             type: String,
             enum: ["WIN", "LOSS", "DRAW", "NORESULT"]
-         }, // 'win', 'loss', 'draw', "no result" As of now have taken only 4 possibilities 
-        
+         }, // 'win', 'loss', 'draw', "no result" As of now have taken only 4 possibilities
       },
     ],
   },
