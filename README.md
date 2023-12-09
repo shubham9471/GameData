@@ -65,7 +65,7 @@ This repository contains a Node.js API for user registration, authentication, an
     - `POST /login`
 
 - **Game Data API:**
-    - `POST /game/create/:username`
+    - `POST /game/create`
     - `GET /game/get/:username`
     - `PUT /game/update/:username`
     - `DELETE /game/delete/:username`
