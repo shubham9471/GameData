@@ -17,9 +17,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'mysql_user',
-    password: 'mysql_password',
-    database: 'userDatabase'
+    user: 'root',
+    password: 'shanu2604',
+    database: 'userDataBase'
   });
   
   db.connect((err) => {
